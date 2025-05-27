@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BASE_URL } from "@/lib/api";
+import { IoTrendingUpSharp } from "react-icons/io5";
 
 interface Instructor {
   name: string;
@@ -148,11 +149,27 @@ const TopProducts: React.FC<TopProductsProps> = ({ searchTerm }) => {
 
                   {/* Meta Info */}
                   <div className="text-xs text-gray-500 mb-2 space-y-1">
-                    <p>📚 Credits – {course.credits ?? 3}</p>
+                    {/* <p>📚 Credits – {course.credits ?? 3}</p> */}
                     <p>⏱ Duration – {course.duration ?? 45} Hours</p>
                     <p>
                       📂 Category – {course.category} / {course.subcategory}
                     </p>
+                    {course.credits !== undefined ? (
+                      <div className="flex space-x-2 items-center xsm:space-x-1 sm:space-x-1 pt-2">
+                        <IoTrendingUpSharp className="w-[22px] h-[22px] text-[#DFDFDF] xsm:w-[15px] xsm:h-[15px] sm:w-6 sm:h-6 md:h-8 md:w-8" />
+                        <p className="font-pop text-[14px] font-medium text-[#555555] xsm:text-[10px] sm:text-[10px] sm:leading-none md:text-[6px]">
+                          <span
+                            className={`font-bold uppercase text-[12px] ${
+                              course.credits > 1
+                                ? "text-green-500"
+                                : "text-red-500"
+                            }`}
+                          >
+                            Credits - {course.credits > 1 ? "YES" : "NO"}
+                          </span>
+                        </p>
+                      </div>
+                    ) : null}
                   </div>
 
                   {/* Discount Badge */}
