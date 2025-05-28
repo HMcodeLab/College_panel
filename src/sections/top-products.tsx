@@ -87,7 +87,9 @@ const TopProducts: React.FC<TopProductsProps> = ({ searchTerm }) => {
             return (
               <Link
                 key={course._id}
-                href={`https://hopingminds.com/detailcourse/${course.slug}`}
+                href={`https://hopingminds.com/detailcourse/${encodeURIComponent(
+                  course.slug
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
