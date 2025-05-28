@@ -34,7 +34,7 @@ const Layout = () => {
       <div
         className={`${
           isSidebarOpen ? "block" : "hidden"
-        } fixed top-10 md:top-[80px] left-0 z-50 w-full h-[calc(100vh-80px)] shadow pt-10 md:block md:w-70 md:h-[calc(100vh-80px)] md:overflow-y-auto`}
+        } fixed top-10 md:top-[100px] left-0 z-50  w-72 h-[calc(100vh-80px)] shadow pt-10 md:block md:w-70 md:h-[calc(100vh-80px)] md:overflow-y-auto`}
       >
         <Sidebar />
       </div>

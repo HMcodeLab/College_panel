@@ -38,7 +38,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-72 p-4 bg-white space-y-6">
+    <div className="w-72 h-screen p-4 bg-white space-y-6 overflow-y-auto">
       <h2 className="text-xl font-semibold text-gray-800">Filter Courses</h2>
 
       {/* Degree Filter */}
