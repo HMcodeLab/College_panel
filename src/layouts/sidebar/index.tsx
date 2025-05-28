@@ -11,13 +11,14 @@ const degreeStreamMap: Record<string, string[]> = {
   Diploma: ["Electrical", "Civil", "Mechanical"],
 };
 
+const creditDetails = ["1", "1-2", "3-4", "6+"];
 const domainList = ["AI", "ML", "Web Dev", "Cloud", "IoT"];
 
 const Sidebar: React.FC = () => {
   const [selectedDegree, setSelectedDegree] = useState<string>("");
   const [selectedStream, setSelectedStream] = useState<string>("");
   const [selectedSemester, setSelectedSemester] = useState<string>("");
-  const [credit, setCredit] = useState<string>("");
+  const [selectedCredit, setSelectedCredit] = useState<string>("");
   const [selectedDomains, setSelectedDomains] = useState<string[]>([]);
 
   const handleDomainChange = (domain: string) => {
@@ -29,9 +30,8 @@ const Sidebar: React.FC = () => {
   };
 
   const applyFilters = () => {
-    // For demo: just alert the current selections
     alert(
-      `Degree: ${selectedDegree}\nStream: ${selectedStream}\nSemester: ${selectedSemester}\nCredit: ${credit}\nDomains: ${selectedDomains.join(
+      `Degree: ${selectedDegree}\nStream: ${selectedStream}\nSemester: ${selectedSemester}\nCredit: ${selectedCredit}\nDomains: ${selectedDomains.join(
         ", "
       )}`
     );
@@ -106,18 +106,20 @@ const Sidebar: React.FC = () => {
       {/* Credit Filter */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
-          Credit (Optional)
+          Credit
         </label>
-        <input
-          type="number"
-          min={0.1}
-          max={10}
-          step={0.1}
-          value={credit}
-          onChange={(e) => setCredit(e.target.value)}
-          placeholder="e.g. 3.5"
+        <select
+          value={selectedCredit}
+          onChange={(e) => setSelectedCredit(e.target.value)}
           className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-        />
+        >
+          <option value="">Select Credit</option>
+          {creditDetails.map((credit) => (
+            <option key={credit} value={credit}>
+              {credit}
+            </option>
+          ))}
+        </select>
       </div>
 
       {/* Domain Filter */}
@@ -126,7 +128,7 @@ const Sidebar: React.FC = () => {
           Domain
         </label>
         <div className="space-y-1">
-          {domainList?.map((domain) => (
+          {domainList.map((domain) => (
             <div key={domain} className="flex items-center">
               <input
                 type="checkbox"
