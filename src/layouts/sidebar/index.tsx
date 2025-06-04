@@ -11,7 +11,7 @@ const degreeStreamMap: Record<string, string[]> = {
   Diploma: ["Electrical", "Civil", "Mechanical"],
 };
 
-const creditDetails = ["1", "1-2", "3-4", "6+"];
+const creditDetails = ["0.5", "1", "1.5", "2", "2.5", "3", "4"];
 const domainList = ["AI", "ML", "Web Dev", "Cloud", "IoT"];
 
 const Sidebar: React.FC = () => {
@@ -52,7 +52,7 @@ const Sidebar: React.FC = () => {
             setSelectedDegree(e.target.value);
             setSelectedStream(""); // reset stream on degree change
           }}
-          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-green-500"
         >
           <option value="">Select Degree</option>
           {Object.keys(degreeStreamMap).map((degree) => (
@@ -72,7 +72,7 @@ const Sidebar: React.FC = () => {
           <select
             value={selectedStream}
             onChange={(e) => setSelectedStream(e.target.value)}
-            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-green-500"
           >
             <option value="">Select Stream</option>
             {(degreeStreamMap[selectedDegree] ?? []).map((stream) => (
@@ -92,7 +92,7 @@ const Sidebar: React.FC = () => {
         <select
           value={selectedSemester}
           onChange={(e) => setSelectedSemester(e.target.value)}
-          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-green-500"
         >
           <option value="">Select Semester</option>
           {[...Array(8)].map((_, i) => (
@@ -111,7 +111,7 @@ const Sidebar: React.FC = () => {
         <select
           value={selectedCredit}
           onChange={(e) => setSelectedCredit(e.target.value)}
-          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+          className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:ring-green-500"
         >
           <option value="">Select Credit</option>
           {creditDetails.map((credit) => (

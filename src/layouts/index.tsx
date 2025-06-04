@@ -4,7 +4,7 @@ import MobileHeader from "@/layouts/header/mobile";
 import Footer from "@/layouts/footer";
 import Sidebar from "./sidebar";
 import TopProducts from "@/sections/top-products";
-import TopCategories from "@/sections/top-categories";
+// import TopCategories from "@/sections/top-categories";
 
 const Layout = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,7 +44,7 @@ const Layout = () => {
         <div className="flex-1 md:ml-60 pl-4">
           <main>
             <TopProducts searchTerm={searchTerm} />
-            <TopCategories />
+            {/* <TopCategories /> */}
           </main>
         </div>
       </div>

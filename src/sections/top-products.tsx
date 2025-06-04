@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 import { BASE_URL } from "@/lib/api";
 import { IoTrendingUpSharp } from "react-icons/io5";
 
@@ -85,7 +85,7 @@ const TopProducts: React.FC<TopProductsProps> = ({ searchTerm }) => {
           {courses.map((course, index) => {
             const videoId = extractYouTubeId(course.featured_video);
             return (
-              <Link
+              <a
                 key={course._id}
                 href={`https://hopingminds.com/detailcourse/${encodeURIComponent(
                   course.slug
@@ -183,7 +183,7 @@ const TopProducts: React.FC<TopProductsProps> = ({ searchTerm }) => {
                     </div>
                   )}
                 </div>
-              </Link>
+              </a>
             );
           })}
         </div>

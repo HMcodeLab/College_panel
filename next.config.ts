@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
       "www.usnews.com",
       "cdn.gotresumebuilder.com",
       "cdn.sites.tapfiliate.com", // ✅ Add this line
+      "encrypted-tbn0.gstatic.com",
     ],
   },
 };
