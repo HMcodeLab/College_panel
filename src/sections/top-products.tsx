@@ -156,18 +156,12 @@ const TopProducts: React.FC<TopProductsProps> = ({ searchTerm }) => {
                     <p>
                       📂 Category – {course.category} / {course.subcategory}
                     </p>
-                    {course.credits !== undefined ? (
+                    {course.credits !== undefined && course.credits > 0 ? (
                       <div className="flex space-x-2 items-center xsm:space-x-1 sm:space-x-1 pt-2">
                         <IoTrendingUpSharp className="w-[22px] h-[22px] text-[#DFDFDF] xsm:w-[15px] xsm:h-[15px] sm:w-6 sm:h-6 md:h-8 md:w-8" />
                         <p className="font-pop text-[14px] font-medium text-[#555555] xsm:text-[10px] sm:text-[10px] sm:leading-none md:text-[6px]">
-                          <span
-                            className={`font-bold uppercase text-[12px] ${
-                              course.credits > 1
-                                ? "text-green-500"
-                                : "text-red-500"
-                            }`}
-                          >
-                            Credits - {course.credits > 1 ? "YES" : "NO"}
+                          <span className="font-bold uppercase text-[12px] text-green-500">
+                            Credits: Eligible ({course.credits})
                           </span>
                         </p>
                       </div>
